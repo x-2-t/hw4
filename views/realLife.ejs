@@ -39,17 +39,28 @@
 
             <section>
                 <h2>Current Weather in Yokosuka</h2>
+                <!-- Hit daily request limit for Open-Meteo api and causes internal server error. 
+                Added a message to diplay weather is temporarily unavailable until the api becomes availabe 
+                again and prevent the error.-->
+                <% if (data && data.current && data.current_units) { %>
 
-                <!-- ejs for weather value and one for units  -->
-                <p>Temperature: <%= data.current.temperature_2m %>
-                        <%= data.current_units.temperature_2m %>
-                </p>
-                <p>Humidity: <%=data.current.relative_humidity_2m %>
-                        <%= data.current_units.relative_humidity_2m %>
-                </p>
-                <p>Wind Speed: <%= data.current.wind_speed_10m %>
-                        <%= data.current_units.wind_speed_10m %>
-                </p>
+                    <!-- ejs for weather value and one for units  -->
+                    <p>Temperature: <%= data.current.temperature_2m %>
+                            <%= data.current_units.temperature_2m %>
+                    </p>
+                    <p>Humidity: <%=data.current.relative_humidity_2m %>
+                            <%= data.current_units.relative_humidity_2m %>
+                    </p>
+                    <p>Wind Speed: <%= data.current.wind_speed_10m %>
+                            <%= data.current_units.wind_speed_10m %>
+                    </p>
+
+                    <% } else { %>
+                        <p>
+                            Weather information is temporarily unavailable.
+                            Please check back tomorrow.
+                        </p>
+                        <% } %>
             </section>
 
         </div>
@@ -59,7 +70,7 @@
                 <img src="/images/realImg.jpg" alt="real life Dobuita Street">
                 <figcaption>
                     <a href="https://www.shenmuedojo.com/forum/index.php?threads/shenmue-real-locations-chapter-1-yokosuka.4698/"
-                        target=" _blank">Dobuita Street in Yokosuka, Japan</a>
+                        target="_blank">Dobuita Street in Yokosuka, Japan</a>
                 </figcaption>
             </figure>
 
@@ -68,8 +79,8 @@
                 <img src="/images/gameImg.jpg" alt="Doubita Street in Shenmue">
                 <figcaption>
                     <a href="https://www.shenmuedojo.com/forum/index.php?threads/shenmue-real-locations-chapter-1-yokosuka.4698/"
-                        target=" _blank">Dobuita Street in Shenmue</a>
-                    </figcaptio>
+                        target="_blank">Dobuita Street in Shenmue</a>
+                </figcaption>
             </figure>
         </div>
 
