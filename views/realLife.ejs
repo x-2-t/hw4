@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shenmue | In Real Life</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="realLife-body">
+    <%- include('partials/nav') %>
+
+        <h1>Shenmue in Real Life</h1>
+
+        <p>Explore some of the real-world locations in Yokosuka, Japan that inspired the game.</p>
+
+        <div class="cityInfo">
+            <section>
+                <h2>Discover Yokosuka</h2>
+
+                <p>City: <%= yokosuka.name %>
+                </p>
+                <p>Prefecture: <%= prefecture.name %>
+                </p>
+                <p>Country: <%= country.name %>
+                </p>
+                <p>Latitude: <%= yokosuka.latitude %>
+                </p>
+                <p>Longitude: <%= yokosuka.longitude %>
+                </p>
+                <p>Currency: <%= country.currency %>
+                </p>
+                <p>Time Zone: <%= country.timezones[0].tzName %>
+                </p>
+            </section>
+
+
+
+            <section>
+                <h2>Current Weather in Yokosuka</h2>
+
+                <!-- ejs for weather value and one for units  -->
+                <p>Temperature: <%= data.current.temperature_2m %>
+                        <%= data.current_units.temperature_2m %>
+                </p>
+                <p>Humidity: <%=data.current.relative_humidity_2m %>
+                        <%= data.current_units.relative_humidity_2m %>
+                </p>
+                <p>Wind Speed: <%= data.current.wind_speed_10m %>
+                        <%= data.current_units.wind_speed_10m %>
+                </p>
+            </section>
+
+        </div>
+
+        <div class="compImgs">
+            <figure>
+                <img src="/images/realImg.jpg" alt="real life Dobuita Street">
+                <figcaption>
+                    <a href="https://www.shenmuedojo.com/forum/index.php?threads/shenmue-real-locations-chapter-1-yokosuka.4698/"
+                        target=" _blank">Dobuita Street in Yokosuka, Japan</a>
+                </figcaption>
+            </figure>
+
+
+            <figure>
+                <img src="/images/gameImg.jpg" alt="Doubita Street in Shenmue">
+                <figcaption>
+                    <a href="https://www.shenmuedojo.com/forum/index.php?threads/shenmue-real-locations-chapter-1-yokosuka.4698/"
+                        target=" _blank">Dobuita Street in Shenmue</a>
+                    </figcaptio>
+            </figure>
+        </div>
+
+        <div class="map">
+            <h2>Shenmue Guide Map</h2>
+
+            <figure>
+                <img src="/images/map.jpg" alt="Guide map of various spots that were in Shenmue">
+                <figcaption>
+                    <a href="https://www.cocoyoko.net/pdf/shenmue_yokosuka_map_EN.pdf" target="_blank">Shenmue spots of
+                        interest</a>
+                </figcaption>
+            </figure>
+        </div>
+
+        <section class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MGiF2y9eOcc?si=tdQKw4h_qCU-pu7V"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>
